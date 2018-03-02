@@ -132,16 +132,16 @@ Mat canny_edge(Mat gray,int Tlow,int Thigh)
   		{
   			val_x = 0;
   			val_y = 0;
-        	val_x = val_x+(int(blur.at<uchar>(x,y))*canny_kernel_x.at<double>(0,0));
-        	val_x = val_x+(int(blur.at<uchar>(x,y+1))*canny_kernel_x.at<double>(0,1));
-        	val_x = val_x+(int(blur.at<uchar>(x+1,y))*canny_kernel_x.at<double>(1,0));
-        	val_x = val_x+(int(blur.at<uchar>(x+1,y+1))*canny_kernel_x.at<double>(1,1));
+        		val_x = val_x+(int(blur.at<uchar>(x,y))*canny_kernel_x.at<double>(0,0));
+        		val_x = val_x+(int(blur.at<uchar>(x,y+1))*canny_kernel_x.at<double>(0,1));
+        		val_x = val_x+(int(blur.at<uchar>(x+1,y))*canny_kernel_x.at<double>(1,0));
+        		val_x = val_x+(int(blur.at<uchar>(x+1,y+1))*canny_kernel_x.at<double>(1,1));
   			val_x = (val_x<0?0:val_x);	
   			Gx.at<uchar>(x,y) = val_x;
   			val_y = val_y+(int(blur.at<uchar>(x,y))*canny_kernel_y.at<double>(0,0));
-        	val_y = val_y+(int(blur.at<uchar>(x,y+1))*canny_kernel_y.at<double>(0,1));
-        	val_y = val_y+(int(blur.at<uchar>(x+1,y))*canny_kernel_y.at<double>(1,0));
-        	val_y = val_y+(int(blur.at<uchar>(x+1,y+1))*canny_kernel_y.at<double>(1,1));
+        		val_y = val_y+(int(blur.at<uchar>(x,y+1))*canny_kernel_y.at<double>(0,1));
+        		val_y = val_y+(int(blur.at<uchar>(x+1,y))*canny_kernel_y.at<double>(1,0));
+        		val_y = val_y+(int(blur.at<uchar>(x+1,y+1))*canny_kernel_y.at<double>(1,1));
   			val_y = (val_y<0?0:val_y);	
   			Gy.at<uchar>(x,y) = val_y;
   			mag = sqrt((val_x*val_x)+ (val_y*val_y));
